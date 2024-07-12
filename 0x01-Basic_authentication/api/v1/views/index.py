@@ -2,7 +2,6 @@
 """ Module of Index views
 """
 from flask import jsonify, abort
-from flask import abort
 from api.v1.views import app_views
 
 
@@ -34,3 +33,12 @@ def unauthorized() -> None:
       - Unauthorized error.
     """
     abort(401)
+
+
+@app_views.route('/forbidden/', strict_slashes=False)
+def forbidden() -> None:
+    """GET /api/v1/forbidden
+    Return:
+      - Forbidden error.
+    """
+    abort(403)
